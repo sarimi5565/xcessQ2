@@ -1,0 +1,262 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin — KM Kedah Math</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    window.MathJax = { tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Admin panel</h1>
+    <p class="subtitle">Add, delete, and export questions</p>
+    <nav><a href="index.html">← Back to questions</a></nav>
+  </header>
+
+  <section class="admin-auth">
+    <h2>GitHub settings</h2>
+    <div class="form-row">
+      <label>Owner/Org</label><input id="ghOwner" placeholder="e.g., sarimi" />
+    </div>
+    <div class="form-row">
+      <label>Repo</label><input id="ghRepo" placeholder="e.g., kmu-math-questions" />
+    </div>
+    <div class="form-row">
+      <label>Branch</label><input id="ghBranch" placeholder="main" value="main" />
+    </div>
+    <div class="form-row">
+      <label>Token</label><input id="ghToken" type="password" placeholder="GitHub PAT (repo scope)" />
+    </div>
+    <div class="btn-row">
+      <button id="ghLoadBtn" class="btn">Load from GitHub</button>
+      <button id="ghSaveBtn" class="btn btn-accent">Save to GitHub</button>
+    </div>
+    <p class="note">Your token stays in your browser only. Do not share this page or token.</p>
+  </section>
+
+  <section class="admin-editor">
+    <h2>Questions</h2>
+    <div class="btn-row">
+      <button id="addQuestionBtn" class="btn">Add question</button>
+      <button id="exportJsonBtn" class="btn">Download JSON</button>
+      <button id="importJsonBtn" class="btn">Import JSON</button>
+      <input id="importFile" type="file" accept="application/json" hidden />
+    </div>
+
+    <div id="adminList" class="admin-list"></div>
+  </section>
+
+  <script>
+    const DATA_PATH = 'data/questions.json';
+    let store = [];
+
+    function renderAdminList() {
+      const container = document.getElementById('adminList');
+      container.innerHTML = '';
+      store.forEach((item, idx) => {
+        const wrap = document.createElement('div');
+        wrap.className = 'admin-item';
+
+        wrap.innerHTML = `
+          <div class="row">
+            <label>ID</label><input data-k="id" value="${item.id}" />
+            <label>Course</label><input data-k="course" value="${item.course}" />
+            <label>Topic</label><input data-k="topic" value="${item.topic}" />
+            <label>Subtopic</label><input data-k="subtopic" value="${item.subtopic}" />
+            <label>Difficulty</label>
+            <select data-k="difficulty">
+              <option ${sel(item.difficulty,'Easy')}>Easy</option>
+              <option ${sel(item.difficulty,'Medium')}>Medium</option>
+              <option ${sel(item.difficulty,'Hard')}>Hard</option>
+            </select>
+          </div>
+          <div class="row">
+            <label>Question type</label>
+            <select data-k="question.type">
+              <option ${sel(item.question.type,'latex')}>latex</option>
+              <option ${sel(item.question.type,'text')}>text</option>
+            </select>
+            <label>Question content</label>
+            <textarea data-k="question.content">${escapeHtml(item.question.content)}</textarea>
+            <label>Question images (comma URLs)</label>
+            <input data-k="question.images" value="${(item.question.images||[]).join(',')}" />
+          </div>
+          <div class="row">
+            <label>Answer type</label>
+            <select data-k="answer.type">
+              <option ${sel(item.answer.type,'latex')}>latex</option>
+              <option ${sel(item.answer.type,'text')}>text</option>
+            </select>
+            <label>Answer content</label>
+            <textarea data-k="answer.content">${escapeHtml(item.answer.content)}</textarea>
+            <label>Answer images (comma URLs)</label>
+            <input data-k="answer.images" value="${(item.answer.images||[]).join(',')}" />
+            <label>YouTube link</label>
+            <input data-k="answer.youtube" value="${item.answer.youtube||''}" />
+          </div>
+          <div class="row">
+            <label>Tags (comma)</label><input data-k="tags" value="${(item.tags||[]).join(',')}" />
+            <label>Created at</label><input data-k="createdAt" value="${item.createdAt||new Date().toISOString()}" />
+          </div>
+          <div class="btn-row">
+            <button class="btn" data-action="preview">Preview math</button>
+            <button class="btn btn-danger" data-action="delete">Delete</button>
+          </div>
+          <div class="preview"><p class="q">${item.question.content}</p><p class="a">${item.answer.content}</p></div>
+        `;
+
+        wrap.addEventListener('input', (e) => {
+          const k = e.target.getAttribute('data-k');
+          if (!k) return;
+          setDeep(store[idx], k, e.target.value);
+        });
+
+        wrap.querySelector('[data-action="delete"]').addEventListener('click', () => {
+          store.splice(idx, 1);
+          renderAdminList();
+        });
+
+        wrap.querySelector('[data-action="preview"]').addEventListener('click', () => {
+          const prev = wrap.querySelector('.preview');
+          prev.querySelector('.q').innerHTML = store[idx].question.content;
+          prev.querySelector('.a').innerHTML = store[idx].answer.content;
+          window.MathJax && MathJax.typesetPromise([prev]);
+        });
+
+        container.appendChild(wrap);
+      });
+    }
+
+    function sel(curr, val) { return curr === val ? 'selected' : ''; }
+    function escapeHtml(s) {
+      return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    }
+    function setDeep(obj, path, value) {
+      const parts = path.split('.');
+      let o = obj;
+      for (let i=0;i<parts.length-1;i++) {
+        const p = parts[i];
+        if (!(p in o)) o[p] = {};
+        o = o[p];
+      }
+      const last = parts[parts.length-1];
+      if (last === 'images' || last === 'tags') {
+        o[last] = value.split(',').map(s=>s.trim()).filter(Boolean);
+      } else {
+        o[last] = value;
+      }
+    }
+
+    // Buttons: add/import/export
+    document.getElementById('addQuestionBtn').addEventListener('click', () => {
+      const now = new Date().toISOString();
+      store.unshift({
+        id: `NEW-${Math.random().toString(36).slice(2,8).toUpperCase()}`,
+        course: 'SM015',
+        topic: 'Number system',
+        subtopic: 'Complex Number',
+        difficulty: 'Easy',
+        question: { type: 'latex', content: '\\( 2+3i \\)', images: [] },
+        answer: { type: 'latex', content: 'Example answer', images: [], youtube: '' },
+        tags: [],
+        createdAt: now
+      });
+      renderAdminList();
+    });
+
+    document.getElementById('exportJsonBtn').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(store, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'questions.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    document.getElementById('importJsonBtn').addEventListener('click', () => {
+      document.getElementById('importFile').click();
+    });
+    document.getElementById('importFile').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const text = await file.text();
+      store = JSON.parse(text);
+      renderAdminList();
+    });
+
+    // GitHub API integration
+    async function ghLoad(owner, repo, branch, token) {
+      const path = `https://api.github.com/repos/${owner}/${repo}/contents/${DATA_PATH}?ref=${branch}`;
+      const res = await fetch(path, { headers: { Authorization: `Bearer ${token}` } });
+      if (!res.ok) throw new Error('Failed to load from GitHub');
+      const data = await res.json();
+      const content = atob(data.content.replace(/\n/g, ''));
+      store = JSON.parse(content);
+      renderAdminList();
+      localStorage.setItem('km_admin_cfg', JSON.stringify({owner,repo,branch}));
+      localStorage.setItem('km_admin_token', token);
+      // Save SHA for future update
+      sessionStorage.setItem('km_admin_sha', data.sha);
+    }
+
+    async function ghSave(owner, repo, branch, token) {
+      const sha = sessionStorage.getItem('km_admin_sha') || await fetchSha(owner, repo, branch, token);
+      const message = `Update questions.json (${new Date().toISOString()})`;
+      const content = btoa(unescape(encodeURIComponent(JSON.stringify(store, null, 2))));
+      const path = `https://api.github.com/repos/${owner}/${repo}/contents/${DATA_PATH}`;
+      const res = await fetch(path, {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message, content, branch, sha })
+      });
+      if (!res.ok) throw new Error('Failed to save to GitHub');
+      const data = await res.json();
+      sessionStorage.setItem('km_admin_sha', data.content.sha);
+      alert('Saved to GitHub.');
+    }
+
+    async function fetchSha(owner, repo, branch, token) {
+      const path = `https://api.github.com/repos/${owner}/${repo}/contents/${DATA_PATH}?ref=${branch}`;
+      const res = await fetch(path, { headers: { Authorization: `Bearer ${token}` } });
+      const data = await res.json();
+      return data.sha;
+    }
+
+    document.getElementById('ghLoadBtn').addEventListener('click', () => {
+      const owner = document.getElementById('ghOwner').value.trim();
+      const repo = document.getElementById('ghRepo').value.trim();
+      const branch = document.getElementById('ghBranch').value.trim() || 'main';
+      const token = document.getElementById('ghToken').value.trim();
+      ghLoad(owner, repo, branch, token).catch(err => alert(err.message));
+    });
+
+    document.getElementById('ghSaveBtn').addEventListener('click', () => {
+      const owner = document.getElementById('ghOwner').value.trim();
+      const repo = document.getElementById('ghRepo').value.trim();
+      const branch = document.getElementById('ghBranch').value.trim() || 'main';
+      const token = document.getElementById('ghToken').value.trim();
+      ghSave(owner, repo, branch, token).catch(err => alert(err.message));
+    });
+
+    // Initialize with local file for quick start
+    (async () => {
+      try {
+        const res = await fetch('data/questions.json', { cache: 'no-store' });
+        store = await res.json();
+        renderAdminList();
+      } catch (e) {
+        store = [];
+        renderAdminList();
+      }
+    })();
+  </script>
+</body>
+</html>
