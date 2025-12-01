@@ -27,12 +27,12 @@
     "difficulty": "Medium",
     "question": {
       "type": "latex",
-      "content": "Solve 3^(x+1) = 27 for x.",
+      "content": "Solve $3^(x+1) = 27 for x$.",
       "images": ["images/eq_indices_sample.png"]
     },
     "answer": {
       "type": "latex",
-      "content": "27 = 3^3, so 3^(x+1) = 3^3 ⇒ x + 1 = 3 ⇒ x = 2.",
+      "content": "$27 = 3^3, so 3^(x+1) = 3^3 ⇒ x + 1 = 3 ⇒ x = 2$.",
       "images": [],
       "youtube": ""
     },
