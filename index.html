@@ -1,0 +1,78 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kedah Matriculation Math Questions</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- MathJax (LaTeX rendering) -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      options: { renderActions: { addMenu: [] } }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Kedah Matriculation Math Questions</h1>
+    <p class="subtitle">Clean, clear, and vibrant practice for SM015 & SM025</p>
+  </header>
+
+  <section class="controls">
+    <div class="search-group">
+      <input id="searchInput" type="text" placeholder="Search keywords, tags, LaTeX..." />
+      <button id="searchClearBtn" class="btn">Clear</button>
+    </div>
+
+    <div class="filters">
+      <select id="courseFilter">
+        <option value="">All Courses</option>
+        <option value="SM015">SM015</option>
+        <option value="SM025">SM025</option>
+      </select>
+
+      <select id="topicFilter">
+        <option value="">All Topics</option>
+        <option>Number system</option>
+        <option>Equations Inequalities</option>
+        <option>Sequences and Series</option>
+        <option>Matrices</option>
+        <option>Function and Graph</option>
+      </select>
+
+      <select id="subtopicFilter">
+        <option value="">All Subtopics</option>
+        <option>Complex Number</option>
+        <option>Equations of indices</option>
+        <option>Linear Inequalities</option>
+      </select>
+
+      <select id="difficultyFilter">
+        <option value="">All Difficulty</option>
+        <option>Easy</option>
+        <option>Medium</option>
+        <option>Hard</option>
+      </select>
+
+      <button id="randomBtn" class="btn btn-accent">Random</button>
+      <button id="resetFiltersBtn" class="btn">Reset</button>
+    </div>
+  </section>
+
+  <main>
+    <div id="countBar" class="count-bar"></div>
+    <div id="cardsContainer" class="cards"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© Kolej Matrikulasi Kedah — Math Practice</p>
+    <a href="admin.html" class="admin-link">Admin</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
