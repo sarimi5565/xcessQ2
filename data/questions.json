@@ -7,7 +7,7 @@
     "difficulty": "Medium",
     "question": {
       "type": "latex",
-      "content": "$$\\text{Integrate}~~ \\int{x\\sqrt{x^2-1}}$$",
+      "content": "$$\\text{Integrate}~~ \\int{x\\sqrt{x^2-1}}dx$$",
       "images": []
     },
     "answer": {
