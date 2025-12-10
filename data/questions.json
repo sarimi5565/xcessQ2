@@ -1,5 +1,28 @@
 [
   {
+    "id": "SM0250003",
+    "course": "SM025",
+    "topic": "Integration",
+    "subtopic": "Integration by Substitution",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "$$\\text{Integrate}~~ \\int{x\\sqrt{x^2-1}}$$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$$\\dfrac{(x^2-1)^{\\frac{3}{2}}}{3}+C$$",
+      "images": [],
+      "youtube": "https://youtu.be/4vuwQiIcqmI"
+    },
+    "tags": [
+      "integration",
+      "substitution"
+    ],
+    "createdAt": "2025-12-10T03:50:49.644Z"
+  },
+  {
     "id": "SM0250002",
     "course": "SM025",
     "topic": "Integration",
