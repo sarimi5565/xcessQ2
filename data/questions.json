@@ -1,5 +1,53 @@
 [
   {
+    "id": "SM0250005",
+    "course": "SM025",
+    "topic": "Numerical Solution",
+    "subtopic": "Newton Raphson method",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Show that the equation $3-\\cos(x)=x^3$ has a root between $x=0$ (radian) and $x=\\pi$ (radian). By using the Newton-Raphson method with the starting point $\\dfrac{\\pi}{2}$, determine an approximation to this root, giving your answer to 3 significant figures.",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$x=1.42$",
+      "images": [],
+      "youtube": "https://youtu.be/H9HATfhKeeI"
+    },
+    "tags": [
+      "newton",
+      "raphson",
+      "numerical"
+    ],
+    "createdAt": "2025-12-10T04:26:38.596Z"
+  },
+  {
+    "id": "SM0250004",
+    "course": "SM025",
+    "topic": "Numerical Solution",
+    "subtopic": "Newton Raphson method",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Sketch the graph of $y=e^x$ and $y=-2x+2$ on the same diagram. Hence, find an approximation for the root of equation $e^x+2x-2=0$. By taking this value as the first approximation, use Newton Raphson method to find an approximation for this root correct to 4 decimal places.",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$x=0.3149$",
+      "images": [],
+      "youtube": "https://youtu.be/1rshOGuAaEo"
+    },
+    "tags": [
+      "newton",
+      "raphson",
+      "numerical"
+    ],
+    "createdAt": "2025-12-10T04:20:20.917Z"
+  },
+  {
     "id": "SM0250003",
     "course": "SM025",
     "topic": "Integration",
@@ -7,7 +55,7 @@
     "difficulty": "Medium",
     "question": {
       "type": "latex",
-      "content": "$$\\text{Integrate}~~ \\int{x\\sqrt{x^2-1}}~dx$$",
+      "content": "$$\\text{Integrate}~~ \\int{x\\sqrt{x^2-1}}$$",
       "images": []
     },
     "answer": {
@@ -30,7 +78,7 @@
     "difficulty": "Medium",
     "question": {
       "type": "latex",
-      "content": "$$\\text{Integrate} ~~\\int{3x^{2}(x^{3}+5)^{4}}~dx$$",
+      "content": "$$\\text{Integrate} ~~\\int{3x^{2}(x^{3}+5)^{4}}dx$$",
       "images": []
     },
     "answer": {
@@ -53,7 +101,7 @@
     "difficulty": "Easy",
     "question": {
       "type": "latex",
-      "content": "$$\\text{Integrate}$$\n$$\\int{x^2} ~dx$$",
+      "content": "$$\\text{Integrate}$$\n$$\\int{x^2} dx$$",
       "images": []
     },
     "answer": {
@@ -66,7 +114,7 @@
     "createdAt": "2025-12-08T07:04:12.379Z"
   },
   {
-    "id": "SM015-NS-001",
+    "id": "SM0150001",
     "course": "SM015",
     "topic": "Number system",
     "subtopic": "Complex Number",
@@ -80,7 +128,7 @@
       "type": "latex",
       "content": "Modulus: \\(|z| = \\sqrt{(-2)^2 + (2\\sqrt{3})^2} = 4\\). Argument: \\(\\theta = 120^\\circ\\) (QII).",
       "images": [],
-      "youtube": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      "youtube": ""
     },
     "tags": [
       "modulus",
@@ -90,7 +138,7 @@
     "createdAt": "2025-12-01T01:19:00Z"
   },
   {
-    "id": "SM0150001",
+    "id": "SM0150002",
     "course": "SM015",
     "topic": "Equations Inequalities",
     "subtopic": "Equations of indices",
@@ -98,9 +146,7 @@
     "question": {
       "type": "latex",
       "content": "$$\\text{Solve}~~3^{x+1} = 27 ~~\\text{for} ~~x$$",
-      "images": [
-        "images/eq_indices_sample.png"
-      ]
+      "images": []
     },
     "answer": {
       "type": "latex",
