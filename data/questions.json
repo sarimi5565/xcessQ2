@@ -7,7 +7,7 @@
     "difficulty": "Medium",
     "question": {
       "type": "latex",
-      "content": "$$\\text{Integrate}~~ \\int{x\\sqrt{x^2-1}}dx$$",
+      "content": "$$\\text{Integrate}~~ \\int{x\\sqrt{x^2-1}}~dx$$",
       "images": []
     },
     "answer": {
@@ -30,7 +30,7 @@
     "difficulty": "Medium",
     "question": {
       "type": "latex",
-      "content": "$$\\text{Integrate} ~~\\int{3x^{2}(x^{3}+5)^{4}}dx$$",
+      "content": "$$\\text{Integrate} ~~\\int{3x^{2}(x^{3}+5)^{4}}~dx$$",
       "images": []
     },
     "answer": {
@@ -53,7 +53,7 @@
     "difficulty": "Easy",
     "question": {
       "type": "latex",
-      "content": "$$\\text{Integrate}$$\n$$\\int{x^2} dx$$",
+      "content": "$$\\text{Integrate}$$\n$$\\int{x^2} ~dx$$",
       "images": []
     },
     "answer": {
