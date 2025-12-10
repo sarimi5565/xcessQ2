@@ -3,6 +3,7 @@ const DATA_URL = 'data/questions.json';
 
 let QUESTIONS = [];
 let FILTERED = [];
+let _filtersPopulated = false;
 
 const els = {
   searchInput: document.getElementById('searchInput'),
@@ -20,7 +21,11 @@ const els = {
 async function loadData() {
   const res = await fetch(DATA_URL, { cache: 'no-store' });
   QUESTIONS = await res.json();
-  QUESTIONS.sort((a, b) => a.id.localeCompare(b.id));
+  QUESTIONS.sort((a, b) => String(a.id).localeCompare(String(b.id)));
+
+  // Populate topic/subtopic selects from the loaded questions
+  populateFiltersFromQuestions();
+
   applyFilters();
 }
 
@@ -68,9 +73,9 @@ function renderCards(list) {
         <span class="badge course">${item.course}</span>
         <span class="badge topic">${item.topic}</span>
         <span class="badge subtopic">${item.subtopic}</span>
-        <span class="badge diff ${item.difficulty.toLowerCase()}">${item.difficulty}</span>
+        <span class="badge diff ${String(item.difficulty || '').toLowerCase()}">${item.difficulty || ''}</span>
       </div>
-      <h2 class="card-title">${escapeHtml(item.id)}</h2>
+      <h2 class="card-title">${escapeHtml(String(item.id))}</h2>
     `;
 
     const qBody = document.createElement('div');
@@ -158,7 +163,102 @@ function embedYouTube(url) {
 }
 
 function escapeHtml(s) {
-  return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  return String(s).replace(/[&<>"']/g, function (m) {
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+  });
+}
+
+// --- New: populate topic/subtopic filters from questions.json ---
+function populateFiltersFromQuestions() {
+  // guard so we don't repopulate multiple times
+  if (_filtersPopulated) return;
+  _filtersPopulated = true;
+
+  const { topics, subtopicsByTopic, allSubtopics } = extractTopicsAndSubtopics(QUESTIONS);
+
+  populateTopicOptions(els.topic, topics);
+  populateSubtopicOptions(els.subtopic, Array.from(allSubtopics).sort());
+
+  // When topic changes, show related subtopics (or all if none selected)
+  els.topic.addEventListener('change', () => {
+    const selectedTopic = els.topic.value;
+    if (!selectedTopic) {
+      populateSubtopicOptions(els.subtopic, Array.from(allSubtopics).sort());
+    } else {
+      const subs = subtopicsByTopic.get(selectedTopic) || new Set();
+      populateSubtopicOptions(els.subtopic, Array.from(subs).sort());
+    }
+  });
+}
+
+function extractTopicsAndSubtopics(questions) {
+  const topics = new Set();
+  const allSubtopics = new Set();
+  const subtopicsByTopic = new Map();
+
+  if (!Array.isArray(questions)) return { topics: [], subtopicsByTopic, allSubtopics };
+
+  for (const q of questions) {
+    let rawTopics = q.topic ?? q.topics ?? '';
+    let rawSubtopics = q.subtopic ?? q.subtopics ?? '';
+
+    const topicList = normalizeToArray(rawTopics);
+    const subtopicList = normalizeToArray(rawSubtopics);
+
+    if (topicList.length === 0 && subtopicList.length > 0) {
+      // add subtopics to global set even when topic missing
+      for (const s of subtopicList) allSubtopics.add(s);
+    }
+
+    for (const t of topicList) {
+      if (!t) continue;
+      topics.add(t);
+      if (!subtopicsByTopic.has(t)) subtopicsByTopic.set(t, new Set());
+      for (const s of subtopicList) {
+        if (!s) continue;
+        subtopicsByTopic.get(t).add(s);
+        allSubtopics.add(s);
+      }
+    }
+  }
+
+  return { topics: Array.from(topics).sort(), subtopicsByTopic, allSubtopics };
+}
+
+function normalizeToArray(value) {
+  if (value === null || value === undefined) return [];
+  if (Array.isArray(value)) return value.map(String).map(s => s.trim()).filter(Boolean);
+  return String(value)
+    .split(/\s*[;,]\s*|\s+\/\s+/)
+    .map(s => s.trim())
+    .filter(Boolean);
+}
+
+function clearSelectOptions(selectEl) {
+  // keep first option (assumed default like "All ...")
+  while (selectEl.options.length > 1) {
+    selectEl.remove(1);
+  }
+}
+
+function populateTopicOptions(selectEl, topics) {
+  clearSelectOptions(selectEl);
+  for (const t of topics) {
+    const opt = document.createElement('option');
+    opt.value = t;
+    opt.textContent = t;
+    selectEl.appendChild(opt);
+  }
+}
+
+function populateSubtopicOptions(selectEl, subtopics) {
+  clearSelectOptions(selectEl);
+  for (const s of subtopics) {
+    const opt = document.createElement('option');
+    opt.value = s;
+    opt.textContent = s;
+    selectEl.appendChild(opt);
+  }
 }
 
 // Events
