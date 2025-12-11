@@ -1,5 +1,79 @@
 [
   {
+    "id": "SM0250008",
+    "course": "SM025",
+    "topic": "Integration",
+    "subtopic": "Definite Integral Area & Volume",
+    "difficulty": "Hard",
+    "question": {
+      "type": "latex",
+      "content": "\\begin{align*}\n&\\text{(a) Sketch and shade the region $R$ bounded by curve $y=x^2+2$, the line $y=0.5x+1$, $x=0$ and $x=2$. Hence, find the area of $R$.}\\\\\n&\\text{(b) If the region $R$ in part (a) is rotated through $2\\pi$ radian about the $x-$axis, find the volume of the solid generated.}\\\\\n&\\text{(c) Find $\\int{\\dfrac{x}{(x-2)^2}}~dx$}\n\\end{align*}",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "\\begin{align*}\n&\\text{(a) $\\frac{11}{3}$ unit$^2$}\\\\\n&\\text{(b) $\\frac{102}{5}\\pi$ unit$^3$}\\\\\n&\\text{(c) $\\ln{|x-2|}-\\frac{2}{x-2}+C$}\n\\end{align*}",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=rVRFP_bFAz8"
+    },
+    "tags": [
+      "integration",
+      "area",
+      "volume",
+      "substitution",
+      "definite"
+    ],
+    "createdAt": "2025-12-11T01:17:42.030Z"
+  },
+  {
+    "id": "SM0250007",
+    "course": "SM025",
+    "topic": "Integration",
+    "subtopic": "Integration by Substitution",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "By using substitution $u=\\ln{x}$ evaluate $\\int^{3}_{2}{\\dfrac{\\ln{x}}{x}}~dx$ up to five decimal places. If $\\int^{3}_{2}{\\dfrac{\\ln{x}}{x}}~dx$ is approximated using the trapezoidal rule based on five equal subintervals, compute the error.",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "\\begin{align*}\n\\int^{3}_{2}{\\dfrac{\\ln{x}}{x}}~dx=0.36325\\\\\n\\text{Trapezoidal rules} =0.36296\\\\\n\\text{Error} =0.00029\n\\end{align*}",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=ncpwHLRoLMY"
+    },
+    "tags": [
+      "substitution",
+      "integration",
+      "trapezoidal",
+      "definite integral"
+    ],
+    "createdAt": "2025-12-11T00:37:40.278Z"
+  },
+  {
+    "id": "SM0250006",
+    "course": "SM025",
+    "topic": "Numerical Solution",
+    "subtopic": "Newton Raphson method",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "By sketching the graph of $y=x^3$ and $y=4x-2$, show that the equation $x^3-4x+2=0$ has a real root between $1$ and $2$. By using the Newton-Raphson method and initial value $2$, determine the real root that lies between $1$ and $2$, correct to two decimal places.",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$x=1.68$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=wJptVEP-nB8"
+    },
+    "tags": [
+      "newton raphson",
+      "numerical"
+    ],
+    "createdAt": "2025-12-11T00:28:59.064Z"
+  },
+  {
     "id": "SM0250005",
     "course": "SM025",
     "topic": "Numerical Solution",
