@@ -3,7 +3,7 @@
     "id": "SM0250008",
     "course": "SM025",
     "topic": "Integration",
-    "subtopic": "Definite Integral Area & Volume",
+    "subtopic": ["Definite Integral Area","Definite Integral Area","Integration by Substitution"],
     "difficulty": "Hard",
     "question": {
       "type": "latex",
