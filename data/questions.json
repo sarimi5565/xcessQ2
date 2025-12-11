@@ -3,11 +3,11 @@
     "id": "SM0250008",
     "course": "SM025",
     "topic": "Integration",
-    "subtopic": ["Definite Integral Area","Definite Integral Volume","Integration by Substitution"],
+    "subtopic": "Definite Integral Area & Volume",
     "difficulty": "Hard",
     "question": {
       "type": "latex",
-      "content": "\\begin{align*}\n&\\text{(a) Sketch and shade the region $R$ bounded by curve $y=x^2+2$, the line $y=0.5x+1$, $x=0$ and $x=2$. Hence, find the area of $R$.}\\\\\n&\\text{(b) If the region $R$ in part (a) is rotated through $2\\pi$ radian about the $x-$axis, find the volume of the solid generated.}\\\\\n&\\text{(c) Find $\\int{\\dfrac{x}{(x-2)^2}}~dx$}\n\\end{align*}",
+      "content": "(a) Sketch and shade the region $R$ bounded by curve $y=x^2+2$, the line $y=0.5x+1$, $x=0$ and $x=2$. Hence, find the area of $R$.$$$$\n(b) If the region $R$ in part (a) is rotated through $2\\pi$ radian about the $x-$axis, find the volume of the solid generated. $$$$\n(c) Find $\\int{\\dfrac{x}{(x-2)^2}}~dx$",
       "images": []
     },
     "answer": {
@@ -29,7 +29,7 @@
     "id": "SM0250007",
     "course": "SM025",
     "topic": "Integration",
-    "subtopic": ["Integration by Substitution","Trapezoidal Rules"],
+    "subtopic": "Integration by Substitution",
     "difficulty": "Medium",
     "question": {
       "type": "latex",
