@@ -3,7 +3,7 @@
     "id": "SM0250008",
     "course": "SM025",
     "topic": "Integration",
-    "subtopic": ["Definite Integral Area","Definite Integral Area","Integration by Substitution"],
+    "subtopic": ["Definite Integral Area","Definite Integral Volume","Integration by Substitution"],
     "difficulty": "Hard",
     "question": {
       "type": "latex",
@@ -29,7 +29,7 @@
     "id": "SM0250007",
     "course": "SM025",
     "topic": "Integration",
-    "subtopic": "Integration by Substitution",
+    "subtopic": ["Integration by Substitution","Trapezoidal Rules"],
     "difficulty": "Medium",
     "question": {
       "type": "latex",
