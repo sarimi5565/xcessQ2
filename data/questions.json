@@ -1,5 +1,131 @@
 [
   {
+    "id": "SM0250013",
+    "course": "SM025",
+    "topic": "Integration",
+    "subtopic": "Integration by Part",
+    "difficulty": "Hard",
+    "question": {
+      "type": "latex",
+      "content": "$$\\int{x(\\ln{x})^2}~dx$$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$$\\frac{x^2}{2}(\\ln{x})^2-\\frac{x^2}{2}\\ln{x}+\\frac{x^2}{4}+C$$",
+      "images": [],
+      "youtube": "https://youtu.be/hnQYoV084Ck"
+    },
+    "tags": [
+      "integration",
+      "by part",
+      "parts",
+      "logarithm"
+    ],
+    "createdAt": "2025-12-16T02:32:40.691Z"
+  },
+  {
+    "id": "SM0250012",
+    "course": "SM025",
+    "topic": "Integration",
+    "subtopic": "Integration by Part",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "$$\\text{Integrate}~~\\int{2\\ln{(2x)}}~dx$$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$$2x\\ln{(2x)}-2x+C$$",
+      "images": [],
+      "youtube": "https://youtu.be/pCBDCFHAK4Q"
+    },
+    "tags": [
+      "integration",
+      "by part",
+      "parts",
+      "logarithm"
+    ],
+    "createdAt": "2025-12-16T02:27:58.036Z"
+  },
+  {
+    "id": "SM0250011",
+    "course": "SM025",
+    "topic": "Integration",
+    "subtopic": "Integration by Part",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "$$\\text{Integrate}~~\\int{x\\sin{(3x)}}~dx$$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$$-\\frac{x\\cos{(3x)}}{3}+\\frac{\\sin{(3x)}}{9}+C$$",
+      "images": [],
+      "youtube": "https://youtu.be/B8jaeG5ypl8"
+    },
+    "tags": [
+      "integration",
+      "bypart",
+      "parts",
+      "trigo",
+      "trigonometric"
+    ],
+    "createdAt": "2025-12-16T02:23:34.805Z"
+  },
+  {
+    "id": "SM0250010",
+    "course": "SM025",
+    "topic": "Integration",
+    "subtopic": "Integration by Part",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "$$\\text{Integrate}~~\\int{xe^x}~dx$$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$$xe^x-e^x+C$$",
+      "images": [],
+      "youtube": "https://youtu.be/Z3naalrJPTo"
+    },
+    "tags": [
+      "integration",
+      "by part",
+      "parts",
+      "exponential"
+    ],
+    "createdAt": "2025-12-16T02:21:11.285Z"
+  },
+  {
+    "id": "SM0250009",
+    "course": "SM025",
+    "topic": "Integration",
+    "subtopic": "Integration by Part",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "$$\\text{Integrate}~~\\int{x(3^x)}~dx$$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$$\\frac{x(3^x)}{\\ln{3}}-\\frac{3^x}{\\ln{3}}+C$$",
+      "images": [],
+      "youtube": "https://youtu.be/KMKwEKIKFyg"
+    },
+    "tags": [
+      "integration",
+      "by part",
+      "parts",
+      "exponential"
+    ],
+    "createdAt": "2025-12-16T02:12:41.311Z"
+  },
+  {
     "id": "SM0250008",
     "course": "SM025",
     "topic": "Integration",
