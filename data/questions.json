@@ -1,5 +1,105 @@
 [
   {
+    "id": "SM0250017",
+    "course": "SM025",
+    "topic": "Integration",
+    "subtopic": "Integration by Part",
+    "difficulty": "Hard",
+    "question": {
+      "type": "latex",
+      "content": "$$\\int{\\frac{\\ln{(\\ln{x})}}{x}}~dx$$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$$\\ln{|x|}(\\ln{(\\ln{x})})-\\ln{|x|}+C$$",
+      "images": [],
+      "youtube": "https://youtu.be/MtcdHW9gUdw"
+    },
+    "tags": [
+      "integration",
+      "by part",
+      "parts",
+      "logarithm"
+    ],
+    "createdAt": "2025-12-17T04:49:59.500Z"
+  },
+  {
+    "id": "SM0250016",
+    "course": "SM025",
+    "topic": "Integration",
+    "subtopic": "Integration by Part",
+    "difficulty": "Hard",
+    "question": {
+      "type": "latex",
+      "content": "$$\\int{x^3\\ln{x^2}}~dx$$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$$\\frac{1}{2}x^4\\ln{x}-\\frac{x^4}{8}+C$$\n$$\\text{or}$$\n$$\\frac{1}{4}x^4\\ln{x^2}-\\frac{x^4}{8}+C$$",
+      "images": [],
+      "youtube": "https://youtu.be/aP0qSlS7XSE"
+    },
+    "tags": [
+      "integration",
+      "by part",
+      "parts",
+      "logarithm"
+    ],
+    "createdAt": "2025-12-17T04:44:17.196Z"
+  },
+  {
+    "id": "SM0250015",
+    "course": "SM025",
+    "topic": "Integration",
+    "subtopic": "Integration by Part",
+    "difficulty": "Hard",
+    "question": {
+      "type": "latex",
+      "content": "$$\\int{x^2e^x}~dx$$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$$x^2e^x-2xe^x+2e^x+C$$",
+      "images": [],
+      "youtube": "https://youtu.be/BhI6Wqufs2g"
+    },
+    "tags": [
+      "integration",
+      "by part",
+      "parts",
+      "exponential"
+    ],
+    "createdAt": "2025-12-17T04:41:26.189Z"
+  },
+  {
+    "id": "SM0250014",
+    "course": "SM025",
+    "topic": "Integration",
+    "subtopic": "Integration by Part",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "$$\\int{2xe^{1-3x}}~dx$$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$$-\\frac{2xe^{1-3x}}{3}-\\frac{2e^{1-3x}}{9}+C$$",
+      "images": [],
+      "youtube": "https://youtu.be/AzPmOSV8Jik"
+    },
+    "tags": [
+      "integration",
+      "by part",
+      "parts",
+      "exponential"
+    ],
+    "createdAt": "2025-12-17T04:34:44.087Z"
+  },
+  {
     "id": "SM0250013",
     "course": "SM025",
     "topic": "Integration",
