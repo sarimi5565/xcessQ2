@@ -261,6 +261,117 @@ function populateSubtopicOptions(selectEl, subtopics) {
   }
 }
 
+// --- New: Collapsible filters implementation ---
+function setupCollapsibleFilters() {
+  try {
+    const toggleKey = 'filtersCollapsed';
+
+    // Elements we want to collapse/restore; adjust this list if you wish to include/exclude controls
+    const controls = [
+      els.searchInput,
+      els.searchClearBtn,
+      els.course,
+      els.topic,
+      els.subtopic,
+      els.difficulty,
+      els.resetFiltersBtn,
+      els.randomBtn
+    ].filter(Boolean);
+
+    if (controls.length === 0) return;
+
+    // Determine parent elements to hide/show; prefer a semantic wrapper if present
+    const parents = [];
+    for (const el of controls) {
+      // If control is inside a wrapper with class 'filter-group' use that, else immediate parent
+      const wrapper = el.closest && el.closest('.filter-group');
+      parents.push(wrapper || el.parentElement || el);
+    }
+
+    // Remove duplicates while preserving order
+    const uniqueParents = [];
+    const seen = new Set();
+    for (const p of parents) {
+      if (!p) continue;
+      if (!seen.has(p)) {
+        uniqueParents.push(p);
+        seen.add(p);
+      }
+    }
+    if (uniqueParents.length === 0) return;
+
+    // Create toggle button if not present
+    let toggleBtn = document.getElementById('filtersToggleBtn');
+    if (!toggleBtn) {
+      toggleBtn = document.createElement('button');
+      toggleBtn.id = 'filtersToggleBtn';
+      toggleBtn.type = 'button';
+      toggleBtn.className = 'filters-toggle-btn';
+      toggleBtn.setAttribute('aria-controls', uniqueParents.map((p, i) => `filter-part-${i}`).join(' '));
+      // Insert button before the first parent element in the DOM
+      const ref = uniqueParents[0];
+      ref.parentNode && ref.parentNode.insertBefore(toggleBtn, ref);
+    }
+
+    // Assign ids to parents for aria-controls if needed
+    uniqueParents.forEach((p, i) => {
+      if (!p.id) p.id = `filter-part-${i}`;
+    });
+
+    // Inject minimal styles for the toggle button and hidden state
+    if (!document.getElementById('filtersToggleStyles')) {
+      const style = document.createElement('style');
+      style.id = 'filtersToggleStyles';
+      style.innerHTML = `
+.filters-toggle-btn {
+  display: inline-block;
+  margin: 0 0 0.5rem 0;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.filters-hidden {
+  display: none !important;
+}
+      `;
+      document.head.appendChild(style);
+    }
+
+    // Toggle function
+    const setCollapsed = (collapsed, skipStore) => {
+      uniqueParents.forEach(p => {
+        if (collapsed) p.classList.add('filters-hidden');
+        else p.classList.remove('filters-hidden');
+      });
+      toggleBtn.setAttribute('aria-expanded', String(!collapsed));
+      toggleBtn.textContent = collapsed ? 'Show filters' : 'Hide filters';
+      if (!skipStore) {
+        try { localStorage.setItem(toggleKey, collapsed ? '1' : '0'); } catch (e) {}
+      }
+    };
+
+    toggleBtn.addEventListener('click', () => {
+      const cur = toggleBtn.getAttribute('aria-expanded') !== 'true';
+      // cur true means we are expanding (since aria-expanded currently false)
+      setCollapsed(!cur);
+    });
+
+    // Initialize from storage
+    const stored = (() => {
+      try { return localStorage.getItem(toggleKey); } catch (e) { return null; }
+    })();
+    const collapsedInit = stored === '1';
+    setCollapsed(collapsedInit, true);
+
+  } catch (e) {
+    // Fail silently; collapsible filters are an enhancement only
+    console.warn('setupCollapsibleFilters error', e);
+  }
+}
+
 // Events
 ['input', 'change'].forEach(evt => {
   els.searchInput.addEventListener(evt, applyFilters);
@@ -296,5 +407,8 @@ els.randomBtn.addEventListener('click', () => {
     btn?.click();
   }
 });
+
+// Initialize collapsible filters (enhancement)
+setupCollapsibleFilters();
 
 loadData();
