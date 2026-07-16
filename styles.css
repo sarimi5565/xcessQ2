@@ -65,5 +65,5 @@ textarea { min-height: 90px; }
 .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .admin-list { display: grid; gap: 16px; }
 .admin-item { border: 1px solid var(--border); border-radius: 12px; padding: 12px; background: var(--card); }
-.admin-item .row { display: grid; gap: 8px; grid-template-columns: repeat(1, 1fr); margin-bottom: 8px; }
+.admin-item .row { display: grid; gap: 8px; grid-template-columns: repeat(2, 1fr); margin-bottom: 8px; }
 .preview { margin-top: 8px; padding: 8px; background: #e3eafc; border-radius: 8px; }
