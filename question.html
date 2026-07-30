@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Question detail</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .detail-container {
+      max-width: 900px;
+      margin: 28px auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(2,6,23,0.06);
+    }
+    .detail-header { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+    .detail-title { margin:0; font-size:20px; color:var(--accent2); }
+    .back-btn {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      background:transparent;
+      border:1px solid var(--border);
+      border-radius:8px;
+      cursor:pointer;
+    }
+    .detail-body { margin-top:10px; }
+    .detail-section { margin-top:16px; }
+    .full-youtube { margin-top:12px; aspect-ratio: 16/9; }
+    .not-found { padding:24px; text-align:center; color:var(--muted); }
+  </style>
+
+  <!-- MathJax for rendering LaTeX -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      options: { renderActions: { addMenu: [] } }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <main class="detail-container" id="root">
+    <div class="detail-header">
+      <div>
+        <h1 class="detail-title" id="qId">Question</h1>
+        <div id="badges" class="meta" style="margin-top:8px"></div>
+      </div>
+      <div>
+        <button class="back-btn" id="backBtn">← Return</button>
+      </div>
+    </div>
+
+    <div id="content" class="detail-body"></div>
+  </main>
+
+  <script>
+    const DATA_URL = 'data/questions.json';
+
+    function escapeHtml(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    function embedYouTube(url) {
+      if (!url) return '';
+      try {
+        const u = new URL(url);
+        let id = '';
+        if (u.hostname.includes('youtu.be')) {
+          id = u.pathname.slice(1);
+        } else {
+          id = u.searchParams.get('v') || '';
+        }
+        return id ? `https://www.youtube.com/embed/${id}` : '';
+      } catch (e) {
+        return '';
+      }
+    }
+
+    function renderContentBlock(obj) {
+      const wrap = document.createElement('div');
+      if (!obj) return wrap;
+      if (obj.type === 'latex' || obj.type === 'text') {
+        const p = document.createElement('div');
+        p.innerHTML = obj.content || '';
+        wrap.appendChild(p);
+      } else {
+        const p = document.createElement('div');
+        p.innerHTML = escapeHtml(obj.content || '');
+        wrap.appendChild(p);
+      }
+
+      (obj.images || []).forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Question/Answer image';
+        wrap.appendChild(img);
+      });
+
+      return wrap;
+    }
+
+    async function loadAndRender() {
+      const params = new URLSearchParams(location.search);
+      const id = params.get('id');
+      const content = document.getElementById('content');
+      const qIdEl = document.getElementById('qId');
+      const badges = document.getElementById('badges');
+
+      if (!id) {
+        content.innerHTML = '<div class="not-found">No question id provided.</div>';
+        return;
+      }
+
+      try {
+        const res = await fetch(DATA_URL, { cache: 'no-store' });
+        const questions = await res.json();
+        const item = questions.find(x => String(x.id) === String(id));
+        if (!item) {
+          content.innerHTML = '<div class="not-found">Question not found.</div>';
+          return;
+        }
+
+        qIdEl.textContent = item.id;
+
+        badges.innerHTML = `
+          <span class="badge course">${escapeHtml(item.course || '')}</span>
+          <span class="badge topic">${escapeHtml(item.topic || '')}</span>
+          <span class="badge subtopic">${escapeHtml(item.subtopic || '')}</span>
+          <span class="badge diff ${String(item.difficulty || '').toLowerCase()}">${escapeHtml(item.difficulty || '')}</span>
+        `;
+
+        // Question
+        const qSection = document.createElement('section');
+        qSection.className = 'detail-section';
+        qSection.innerHTML = '<h3>Question</h3>';
+        qSection.appendChild(renderContentBlock(item.question));
+        content.appendChild(qSection);
+
+        // Answer
+        const aSection = document.createElement('section');
+        aSection.className = 'detail-section';
+        aSection.innerHTML = '<h3>Answer</h3>';
+        aSection.appendChild(renderContentBlock(item.answer || {}));
+
+        // YouTube
+        if (item.answer?.youtube) {
+          const ytUrl = embedYouTube(item.answer.youtube);
+          if (ytUrl) {
+            const div = document.createElement('div');
+            div.className = 'full-youtube';
+            div.innerHTML = `<iframe src="${ytUrl}" title="YouTube video" frameborder="0" allowfullscreen></iframe>`;
+            aSection.appendChild(div);
+          }
+        }
+
+        content.appendChild(aSection);
+
+        // Ask MathJax to typeset newly added content
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          try { await window.MathJax.typesetPromise(); } catch(e) { /* ignore */ }
+        }
+      } catch (err) {
+        content.innerHTML = `<div class="not-found">Failed to load questions. ${escapeHtml(err && err.message)}</div>`;
+      }
+    }
+
+    document.getElementById('backBtn').addEventListener('click', () => {
+      if (history.length > 1) history.back();
+      else location.href = 'index.html';
+    });
+
+    loadAndRender();
+  </script>
+</body>
+</html>
