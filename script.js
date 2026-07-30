@@ -114,6 +114,18 @@ function renderCards(list) {
     card.appendChild(qBody);
     card.appendChild(toggleBtn);
     card.appendChild(answerWrap);
+
+    // Make the card clickable to open the detail page. Prevent navigation when clicking links/buttons inside the card.
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      const targetTag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+      if (targetTag === 'a' || targetTag === 'button' || e.target.closest && e.target.closest('.youtube')) {
+        // allow normal link/button behavior (e.g., Reveal answer or embedded youtube)
+        return;
+      }
+      window.location.href = `question.html?id=${encodeURIComponent(item.id)}`;
+    });
+
     els.cards.appendChild(card);
 
     // Typeset question content
