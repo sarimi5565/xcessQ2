@@ -1,5 +1,30 @@
 [
   {
+    "id": "SM0150003",
+    "course": "SM015",
+    "topic": "Limits and Continuity",
+    "subtopic": "Limit 0/0",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "$$\\text{Solve}~~~\\lim_{x\\to-3}{\\dfrac{x^3+27}{x+3}}$$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$27$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=Cb3bE3tkrSM"
+    },
+    "tags": [
+      "limits",
+      "0/0",
+      "indeterminate form",
+      "limit"
+    ],
+    "createdAt": "2026-09-06T03:18:36.734Z"
+  },
+  {
     "id": "SM0250017",
     "course": "SM025",
     "topic": "Integration",
