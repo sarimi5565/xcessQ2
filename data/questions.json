@@ -1,5 +1,55 @@
 [
   {
+    "id": "SM0150008",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Parametric Differentiation",
+    "difficulty": "Hard",
+    "question": {
+      "type": "latex",
+      "content": "Given the parametric equations for the curve $~x=2+\\sqrt{\\cos{2t}}~$ and $~y=1-\\sqrt{\\sin{2t}}~$. Find $\\dfrac{dy}{dx}$ and $\\dfrac{d^2y}{dx^2}$. Give your answer in the simplest form.",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=\\cot^{\\frac{3}{2}}{2t}$\n$$$$\n$\\dfrac{d^2y}{dx^2}=-\\dfrac{3\\cos{2t}}{(\\sin{2t})^{\\frac{7}{2}}}$",
+      "images": [],
+      "youtube": "https://youtu.be/YQp7PfQen1I"
+    },
+    "tags": [
+      "parametric",
+      "differentiation",
+      "trigonometry",
+      "chain rules"
+    ],
+    "createdAt": "2026-09-06T07:50:18.507Z"
+  },
+  {
+    "id": "SM0150007",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Implicit Differentiation",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Given $~~y^3=e^{x-y}~~$. Show that.$$$$\n(i)  $~~~~\\dfrac{dy}{dx}=\\dfrac{y}{3+y}$\n$$$$\n(ii) $~~~~(3+y)^3\\dfrac{d^2y}{dx^2}-3y=0$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "Shown",
+      "images": [],
+      "youtube": "https://youtu.be/Nr_-4-Louqw"
+    },
+    "tags": [
+      "implicit differentiation",
+      "implicit",
+      "chain rules",
+      "quotient"
+    ],
+    "createdAt": "2026-09-06T07:42:10.957Z"
+  },
+  {
     "id": "SM0150006",
     "course": "SM015",
     "topic": "Application of Differentation",
