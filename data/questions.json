@@ -1,5 +1,84 @@
 [
   {
+    "id": "SM0150011",
+    "course": "SM015",
+    "topic": "Equations, Inequalities and Absolute Values",
+    "subtopic": "Quadratic inequalities",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Solve $~~3\\leq x^2-2x\\lt x+4$  ",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$[3, 4)$",
+      "images": [],
+      "youtube": "https://youtu.be/-Kqj2xD8A4A"
+    },
+    "tags": [
+      "quadratic",
+      "inequality",
+      "inequalities",
+      "in between",
+      "graphical method"
+    ],
+    "createdAt": "2026-09-08T07:59:25.263Z"
+  },
+  {
+    "id": "SM0150010",
+    "course": "SM015",
+    "topic": "Equations, Inequalities and Absolute Values",
+    "subtopic": "Equation of indices",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Solve $~~~4^x-\\dfrac{3}{2}(4)^{\\frac{1}{2}x+\\frac{1}{2}}=4$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$x=2$",
+      "images": [],
+      "youtube": "https://youtu.be/hB4c0AnD5Bk"
+    },
+    "tags": [
+      "equation",
+      "index",
+      "indices",
+      "power",
+      "exponent"
+    ],
+    "createdAt": "2026-09-08T07:51:12.234Z"
+  },
+  {
+    "id": "SM0150009",
+    "course": "SM015",
+    "topic": "Functions and Graphs",
+    "subtopic": "Composite function",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Given $f(x)=x^2-4$ , $x\\geq0$ and $g(x)=\\sin{2x}$.\n$$$$\n(a)  Find $(f\\circ g)(x)$. Hence, find the value of $(f\\circ g)(\\dfrac{\\pi}{2})$.\n$$$$\n(b)   For $0\\leq x\\leq2\\pi$, sketch the graph of $g(x)$ and state the domain and range of $g(x)$.",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "(a)  $fg(x)=\\sin^2{(2x)}-4$, $fg(\\frac{\\pi}{2})=-4$\n$$$$\n(b) $D_g=[0, 2\\pi],~~~ R_g=[-1, 1]$",
+      "images": [],
+      "youtube": "https://youtu.be/psED3Q3qKzA"
+    },
+    "tags": [
+      "composite",
+      "sketch",
+      "graph",
+      "trigonometry",
+      "domain",
+      "range"
+    ],
+    "createdAt": "2026-09-08T07:36:07.965Z"
+  },
+  {
     "id": "SM0150008",
     "course": "SM015",
     "topic": "Differentiation",
@@ -593,7 +672,7 @@
   {
     "id": "SM0150002",
     "course": "SM015",
-    "topic": "Equations Inequalities",
+    "topic": "Equations, Inequalities and Absolute Values",
     "subtopic": "Equations of indices",
     "difficulty": "Medium",
     "question": {
