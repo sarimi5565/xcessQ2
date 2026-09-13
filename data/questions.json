@@ -1,5 +1,55 @@
 [
   {
+    "id": "SM0150013",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $x=6t^{\\frac{1}{3}}+t^{-7}+\\ln{3}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dx}{dt}=\\dfrac{2}{t^{\\frac{2}{3}}}-\\dfrac{7}{t^8}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=RbrdEe6XAXQ"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "rules",
+      "x^n"
+    ],
+    "createdAt": "2026-09-13T01:56:33.047Z"
+  },
+  {
+    "id": "SM0150012",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y=x^2+3$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\frac{dy}{dx}=2x$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=VkRj-J34_z8"
+    },
+    "tags": [
+      "differentiation",
+      "basic",
+      "rules",
+      "x^n"
+    ],
+    "createdAt": "2026-09-13T01:52:45.336Z"
+  },
+  {
     "id": "SM0150011",
     "course": "SM015",
     "topic": "Equations, Inequalities and Absolute Values",
