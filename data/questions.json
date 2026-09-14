@@ -1,5 +1,82 @@
 [
   {
+    "id": "SM0150031",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $y=3\\ln(x)-x^2+e^x-\\tan(x)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=\\dfrac{3}{x}-2x+e^x-\\sec^2(x)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=39cD_WwSrW4"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "power rules",
+      "trigonometry",
+      "exponent",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-14T04:34:56.940Z"
+  },
+  {
+    "id": "SM0150030",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $h(x)=\\dfrac{2x^3-x^2-2x+1}{x}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$h'(x)=4x-1-\\dfrac{1}{x^2}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=OP6f59Tj11Y"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "power rules",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-14T04:32:07.838Z"
+  },
+  {
+    "id": "SM0150029",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $\\dfrac{d}{dx}\\left(\\sin(x)-\\dfrac{3}{x^2}\\right)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\cos(x)+\\dfrac{6}{x^3}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=JIfoVC4voto"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "power rules",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-14T04:28:48.300Z"
+  },
+  {
     "id": "SM0150028",
     "course": "SM015",
     "topic": "Differentiation",
