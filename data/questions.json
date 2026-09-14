@@ -1,5 +1,236 @@
 [
   {
+    "id": "SM0150044",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $~~y=\\sin^2(x)~~$  using product rules",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=2\\sin(x)\\cos(x)~~~$\nor\n$~~~\\dfrac{dy}{dx}=\\sin(2x)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=WaTS9p1uWcA"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-14T07:50:29.138Z"
+  },
+  {
+    "id": "SM0150043",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $y=x(x^2+3\\ln(x))$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=3x^2+3\\ln(x)+3$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=Sr-8iWIwSSQ"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-14T07:46:14.530Z"
+  },
+  {
+    "id": "SM0150042",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $y=2\\cos(x)\\sin(x)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=2\\cos^2(x)-2\\sin^2(x)~~~$\nor\n$~~~\\dfrac{dy}{dx}=2\\cos(2x)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=IVQTUIu6zN0"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-14T07:40:51.955Z"
+  },
+  {
+    "id": "SM0150041",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $~~y=e^{2x}~~$ using product rules",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=2e^{2x}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=G11wa-Rcb-I"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "exponent"
+    ],
+    "createdAt": "2026-09-14T07:37:15.780Z"
+  },
+  {
+    "id": "SM0150040",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $g(x)=5^x\\cos(x)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$g'(x)=5^x(\\ln{5}\\cos(x)-\\sin(x))$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=6bHdp0JJAFk"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "power rules",
+      "trigonometry",
+      "exponent"
+    ],
+    "createdAt": "2026-09-14T07:33:12.379Z"
+  },
+  {
+    "id": "SM0150039",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $f(x)=\\dfrac{1}{x}(\\sin(x)-3x)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$f'(x)=\\dfrac{\\cos(x)}{x}-\\dfrac{\\sin(x)}{x^2}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=sq-AWypTg5I"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "power rules",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-14T07:29:39.005Z"
+  },
+  {
+    "id": "SM0150038",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $y=x^4\\ln(x)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=x^3(4\\ln(x)+1)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=VI1AfVCgGdo"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "power rules",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-14T07:26:21.029Z"
+  },
+  {
+    "id": "SM0150037",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $y=2e^x\\tan(x)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=2e^x(\\tan(x)+\\sec^2(x))$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=r8Sz-NqUDA0"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "power rules",
+      "exponent",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-14T07:22:12.910Z"
+  },
+  {
+    "id": "SM0150036",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $f(x)=(x^3-2x)\\left(1-\\dfrac{1}{x^2}\\right)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$f'(x)=3x^2-3-\\dfrac{2}{x^2}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=77bMIxUxtvU"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "power rules"
+    ],
+    "createdAt": "2026-09-14T07:19:04.438Z"
+  },
+  {
     "id": "SM0150035",
     "course": "SM015",
     "topic": "Differentiation",
