@@ -1,5 +1,111 @@
 [
   {
+    "id": "SM0150035",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $x=5e^t\\ln(t)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dx}{dt}=5e^t\\left(\\ln(t)+\\dfrac{1}{t}\\right)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=IKWyttyl_3s"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "power rules",
+      "exponent",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-14T04:51:31.881Z"
+  },
+  {
+    "id": "SM0150034",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $y=3e^x\\sin(x)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=3e^x(\\sin(x)+\\cos(x))$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=ki-GdTVRCvU"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "power rules",
+      "exponent",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-14T04:48:46.410Z"
+  },
+  {
+    "id": "SM0150033",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $y=\\sqrt{x}(x^3-5x)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=\\dfrac{1}{2}x^{\\frac{3}{2}}(9x^2-25)~~~$ \nor \n$~~~\\dfrac{dy}{dx}=\\dfrac{9}{2}x^{\\frac{7}{2}}-\\dfrac{25}{2}x^{\\frac{3}{2}}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=A0pn757IRDM"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "power rules",
+      "exponent"
+    ],
+    "createdAt": "2026-09-14T04:43:36.268Z"
+  },
+  {
+    "id": "SM0150032",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Product rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y=x^2e^x$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=xe^x(2+x)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=55oosbHmahw"
+    },
+    "tags": [
+      "differentiate",
+      "product",
+      "rules",
+      "power rules",
+      "exponent"
+    ],
+    "createdAt": "2026-09-14T04:40:14.587Z"
+  },
+  {
     "id": "SM0150031",
     "course": "SM015",
     "topic": "Differentiation",
