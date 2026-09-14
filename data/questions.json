@@ -1,5 +1,309 @@
 [
   {
+    "id": "SM0150028",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y=(x^3-2)^2$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=6x^5-12x^2$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=sTxTpMxHI0g"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "power rules"
+    ],
+    "createdAt": "2026-09-14T04:23:24.821Z"
+  },
+  {
+    "id": "SM0150027",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $y=\\dfrac{x^3-\\sqrt{x}}{x^2}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=1+\\dfrac{3}{2}x^{-\\frac{5}{2}}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=7Sdvw9i-nv8"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "power rules",
+      "surd"
+    ],
+    "createdAt": "2026-09-14T04:20:14.150Z"
+  },
+  {
+    "id": "SM0150026",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $\\dfrac{d}{dx}(3^x+\\ln(x))$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$3^x\\ln{3}+\\dfrac{1}{x}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=NFt-lcxp7bY"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "rules",
+      "exponent",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-14T04:14:25.663Z"
+  },
+  {
+    "id": "SM0150025",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $f(x)=\\dfrac{e^x-e^{2x}}{e^x}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$f'(x)=-e^x$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=NMnV9q_Ot8U"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "rules",
+      "exponent"
+    ],
+    "createdAt": "2026-09-14T03:59:30.432Z"
+  },
+  {
+    "id": "SM0150024",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $\\dfrac{d}{dx}(\\ln(3x))$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "\\dfrac{1}{x}",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=QPRaG-Gy_I0"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "rules",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-14T03:56:15.073Z"
+  },
+  {
+    "id": "SM0150023",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $y=\\ln(t)-3t^3+3^t$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dt}=\\dfrac{1}{t}-9t^2+3^t\\ln{3}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=4lqroJ9Ok44"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "rules",
+      "exponent",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-14T03:53:08.642Z"
+  },
+  {
+    "id": "SM0150022",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $y=3^x+e^x-\\ln(x^2)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=3^x\\ln{3}+e^x-\\dfrac{2}{x}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=2PfLhaL-nko"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "rules",
+      "exponent",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-14T03:49:32.162Z"
+  },
+  {
+    "id": "SM0150021",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $h(x)=2\\sin(x)-\\cos(x)+5x^{-2}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$h'(x)=3\\cos(x)+\\sin(x)-\\dfrac{10}{x^3}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=upao87e4yqw"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "rules",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-14T03:45:11.907Z"
+  },
+  {
+    "id": "SM0150020",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $y=\\dfrac{1}{5}x^5-\\sqrt{x}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=x^4-\\dfrac{1}{2\\sqrt{x}}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=4FLVm9KBj6M"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "rules",
+      "power rules"
+    ],
+    "createdAt": "2026-09-14T03:38:58.900Z"
+  },
+  {
+    "id": "SM0150019",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y=\\dfrac{1}{t}+t$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dt}=-\\dfrac{1}{t^2}+1$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=qF1dM4thIxw"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "rules",
+      "power rules"
+    ],
+    "createdAt": "2026-09-14T03:31:02.789Z"
+  },
+  {
+    "id": "SM0150018",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $g(x)=2e^x+\\ln(x)-3x$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$g'(x)=2e^x+\\dfrac{1}{x}-3$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=sKRL17Zf8dI"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "rules",
+      "exponent",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-14T03:28:29.413Z"
+  },
+  {
+    "id": "SM0150017",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Basic rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate  $v=4^x-6x^3-3\\ln(x)+4$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dv}{dx}=4^x\\ln{4}-18x^2-\\dfrac{3}{x}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=zSn-MVXhPbA"
+    },
+    "tags": [
+      "differentiate",
+      "basic",
+      "rules",
+      "exponent",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-14T03:08:02.217Z"
+  },
+  {
     "id": "SM0150016",
     "course": "SM015",
     "topic": "Differentiation",
