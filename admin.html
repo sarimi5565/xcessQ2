@@ -155,15 +155,18 @@
     // Buttons: add/import/export
     document.getElementById('addQuestionBtn').addEventListener('click', () => {
       const now = new Date().toISOString();
+      const previous = store[0];
+
       store.unshift({
-        id: `NEW-${Math.random().toString(36).slice(2,8).toUpperCase()}`,
-        course: 'SM015',
-        topic: 'Number system',
-        subtopic: 'Complex Number',
+        // Copy only these fields from the previous question.
+        id: previous?.id || `NEW-${Math.random().toString(36).slice(2,8).toUpperCase()}`,
+        course: previous?.course || 'SM015',
+        topic: previous?.topic || 'Number system',
+        subtopic: previous?.subtopic || 'Complex Number',
         difficulty: 'Easy',
         question: { type: 'latex', content: '\\( 2+3i \\)', images: [] },
         answer: { type: 'latex', content: 'Example answer', images: [], youtube: '' },
-        tags: [],
+        tags: previous ? [...(previous.tags || [])] : [],
         createdAt: now
       });
       renderAdminList();
