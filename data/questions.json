@@ -1,5 +1,206 @@
 [
   {
+    "id": "SM0150052",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Quotient rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y=\\dfrac{\\ln x^2}{2x}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=\\dfrac{1-\\ln x}{x^2}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=zp9Lg53XU1I"
+    },
+    "tags": [
+      "differentiate",
+      "quotient",
+      "rules",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-21T08:03:27.680Z"
+  },
+  {
+    "id": "SM0150051",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Quotient rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y=\\dfrac{3^x+e^x}{x^2}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=\\dfrac{3^x x^2\\ln{3}+x^2 e^x -2x 3^x-2xe^x}{x^4}$\n$$$$ or\n$\\dfrac{dy}{dx}=\\dfrac{x(3^x\\ln 3 + e^x)-2(3^x+e^x)}{x^3}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=O-owSFjCg-0"
+    },
+    "tags": [
+      "differentiate",
+      "quotient",
+      "rules",
+      "exponent"
+    ],
+    "createdAt": "2026-09-21T07:58:19.217Z"
+  },
+  {
+    "id": "SM0150050",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Quotient rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $~~y=\\cot (x)~~$ using quotient rules",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=-\\text{cosec}^2 (x)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=rQGwuJ8i6zA"
+    },
+    "tags": [
+      "differentiate",
+      "quotient",
+      "rules",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-21T07:54:31.098Z"
+  },
+  {
+    "id": "SM0150049",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Quotient rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $g(x)=\\dfrac{\\ln x}{x^3+1}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$g'(x)=\\dfrac{x^3+1-3x^3\\ln x}{x(x^3+1)^2}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=DjBjf67yjIE"
+    },
+    "tags": [
+      "differentiate",
+      "quotient",
+      "rules",
+      "exponent",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-21T07:51:27.531Z"
+  },
+  {
+    "id": "SM0150048",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Quotient rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y=\\dfrac{t^2-1}{t^2+1}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dt}=\\dfrac{4t}{(t^2+1)^2}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=7ePuaC4ijJI"
+    },
+    "tags": [
+      "differentiate",
+      "quotient",
+      "rules",
+      "exponent"
+    ],
+    "createdAt": "2026-09-21T07:49:11.659Z"
+  },
+  {
+    "id": "SM0150047",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Quotient rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $~~f(x)=\\dfrac{\\sin x}{\\cos x}~~$ using quotient rule",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$f'(x)=\\sec^2 x$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=7l66iVPHZkA"
+    },
+    "tags": [
+      "differentiate",
+      "quotient",
+      "rules",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-21T07:46:12.388Z"
+  },
+  {
+    "id": "SM0150046",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Quotient rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y=\\dfrac{x^3+4x}{x^2-1}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=\\dfrac{x^4-7x^2-4}{(x^2-1)^2}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=jSa_06kDY28"
+    },
+    "tags": [
+      "differentiate",
+      "quotient",
+      "rules",
+      "exponent"
+    ],
+    "createdAt": "2026-09-21T07:43:57.900Z"
+  },
+  {
+    "id": "SM0150045",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Quotient rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y=\\dfrac{x^2}{e^x}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=\\dfrac{2x-x^2}{e^x}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=onFwZWK2BlY"
+    },
+    "tags": [
+      "differentiate",
+      "quotient",
+      "rules",
+      "exponent"
+    ],
+    "createdAt": "2026-09-21T07:32:59.551Z"
+  },
+  {
     "id": "SM0150044",
     "course": "SM015",
     "topic": "Differentiation",
