@@ -1,5 +1,364 @@
 [
   {
+    "id": "SM0150066",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y = \\sin^2 x - \\cos^2 x$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx} = 2 \\sin(2x)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=65Qjq54jJfc"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-21T13:44:40.616Z"
+  },
+  {
+    "id": "SM0150065",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $~~y = \\ln(\\ln x)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx} = \\dfrac{1}{x \\ln x}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=6yD338eNrWU"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-21T13:42:34.936Z"
+  },
+  {
+    "id": "SM0150064",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y = \\dfrac{1}{(5x - 1)^3}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx} = -\\dfrac{15}{(5x - 1)^4}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=W2rsOaiTIeE"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "power",
+      "index"
+    ],
+    "createdAt": "2026-09-21T13:39:58.345Z"
+  },
+  {
+    "id": "SM0150063",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $f(x) = \\sqrt{x^3 + 3x^2 - 1}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$f'(x) = \\dfrac{3x^2 + 6x}{2\\sqrt{x^3 + 3x^2 - 1}}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=rOdONwpn5lA"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "square root",
+      "index"
+    ],
+    "createdAt": "2026-09-21T13:37:42.977Z"
+  },
+  {
+    "id": "SM0150062",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Easy",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y = e^x + e^{-x}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx} = e^x - e^{-x}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=Zlup4Bi2r4A"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "exponent"
+    ],
+    "createdAt": "2026-09-21T13:36:27.778Z"
+  },
+  {
+    "id": "SM0150061",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y = \\ln(\\cos x)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx} = -\\tan x$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=O8P_uVeafxs"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "trigonometry",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-21T13:34:15.362Z"
+  },
+  {
+    "id": "SM0150060",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y = \\tan(e^x + x^2)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx} = (e^x + 2x) \\sec^2(e^x + x^2)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=tFfdOzOwvU0"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "trigonometry",
+      "exponent",
+      "power",
+      "index"
+    ],
+    "createdAt": "2026-09-21T13:31:40.531Z"
+  },
+  {
+    "id": "SM0150059",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y = (\\ln x)^3$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx} = \\dfrac{3(\\ln x)^2}{x}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=MpD7o2UYs7s"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "logarithm",
+      "power",
+      "index"
+    ],
+    "createdAt": "2026-09-21T13:28:15.355Z"
+  },
+  {
+    "id": "SM0150058",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $f(x) = \\cos(2x - \\pi)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$f'(x) = -2 \\sin(2x - \\pi)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=lmZa_PVxPmE"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-21T13:25:21.716Z"
+  },
+  {
+    "id": "SM0150057",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y = 2 \\sin(2x)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx} = 4 \\cos(2x)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=D9RYDXFjHJw"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "trigonometry"
+    ],
+    "createdAt": "2026-09-21T13:21:44.709Z"
+  },
+  {
+    "id": "SM0150056",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y = \\ln(x^3 - 1)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx} = \\dfrac{3x^2}{x^3 - 1}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=xZQH-f_KRiY"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "logaritm"
+    ],
+    "createdAt": "2026-09-21T13:18:53.205Z"
+  },
+  {
+    "id": "SM0150055",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $~~y = 3^{4 - 5x}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx} = -5 \\ln(3) \\cdot 3^{4 - 5x}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=UEYOB_ZiOqg"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "exponent"
+    ],
+    "createdAt": "2026-09-21T13:15:51.750Z"
+  },
+  {
+    "id": "SM0150054",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $~~y = e^{x^2 + 1}~~$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx} = 2x e^{x^2 + 1}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=R6NP-aFIAjk"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "exponent"
+    ],
+    "createdAt": "2026-09-21T13:11:10.207Z"
+  },
+  {
+    "id": "SM0150053",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $~~y = (x^2 + x + 1)^5~~$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx} = (10x + 5)(x^2 + x + 1)^4$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=XMpUZeadGNg"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "power",
+      "index"
+    ],
+    "createdAt": "2026-09-21T13:00:20.553Z"
+  },
+  {
     "id": "SM0150052",
     "course": "SM015",
     "topic": "Differentiation",
