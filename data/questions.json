@@ -1,5 +1,88 @@
 [
   {
+    "id": "SM0150069",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Hard",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y=e^{\\sin(2x)}$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=2e^{\\sin(2x)}\\cos(2x)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=VSfO6T-owwI"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "trigonometry",
+      "exponent"
+    ],
+    "createdAt": "2026-09-21T13:57:14.614Z"
+  },
+  {
+    "id": "SM0150068",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Hard",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y=\\sin(\\ln(x^2+1))$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=\\dfrac{2x\\cos(\\ln(x^2+1))}{x^2+1}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=di77kAt9xJY"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "trigonometry",
+      "logarithm",
+      "power",
+      "index",
+      "surd"
+    ],
+    "createdAt": "2026-09-21T13:55:15.759Z"
+  },
+  {
+    "id": "SM0150067",
+    "course": "SM015",
+    "topic": "Differentiation",
+    "subtopic": "Chain rules",
+    "difficulty": "Hard",
+    "question": {
+      "type": "latex",
+      "content": "Differentiate $y=\\ln\\left(\\sqrt{\\dfrac{x+2}{1-x}}\\right)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$\\dfrac{dy}{dx}=\\dfrac{1}{2(x+2)}+\\dfrac{1}{2(1-x)}~~$ $$$$\nor  $~~\\dfrac{dy}{dx}=\\dfrac{3}{2(x+2)(1-x)}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=_fha9qabnmc"
+    },
+    "tags": [
+      "differentiate",
+      "chain",
+      "rules",
+      "logarithm",
+      "power",
+      "index",
+      "surd"
+    ],
+    "createdAt": "2026-09-21T13:50:39.207Z"
+  },
+  {
     "id": "SM0150066",
     "course": "SM015",
     "topic": "Differentiation",
