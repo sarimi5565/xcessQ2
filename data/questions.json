@@ -1,5 +1,202 @@
 [
   {
+    "id": "SM0150077",
+    "course": "SM015",
+    "topic": "Limits and Continuity",
+    "subtopic": "Asymptotes",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Given $y = \\dfrac{x + 1}{(x - 4)(x + 2)}$. $~~~$  By finding the limit at appropriate points, obtain the horizontal and vertical asymptotes.",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "Vertical asymptotes: $x = 4, x = -2$; $~~~$ Horizontal asymptote: $y = 0$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=lmHKCUOkJ1g"
+    },
+    "tags": [
+      "asymptotes",
+      "vertical",
+      "horizontal"
+    ],
+    "createdAt": "2026-09-23T04:37:23.821Z"
+  },
+  {
+    "id": "SM0150076",
+    "course": "SM015",
+    "topic": "Limits and Continuity",
+    "subtopic": "Continuity",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Given $f(x) = \\begin{cases} ax + 3, & x > 5 \\\\ 8, & x = 5 \\\\ x^2 + bx - 2a, & x < 5 \\end{cases}$. $$$$\nFind $a$ and $b$ such that the function is continuous for all $x$.",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$a = 1, ~~ b = -3$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=k90GnAn4whk"
+    },
+    "tags": [
+      "continuity",
+      "continuous"
+    ],
+    "createdAt": "2026-09-23T04:34:03.494Z"
+  },
+  {
+    "id": "SM0150075",
+    "course": "SM015",
+    "topic": "Limits and Continuity",
+    "subtopic": "Limit at infinity",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "$$ \\text{Evaluate}~~~\\lim_{x \\to -\\infty} \\frac{3x+2}{\\sqrt{4x^2-3}}.$$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$-\\dfrac{3}{2}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=ZMZul5j6BAA"
+    },
+    "tags": [
+      "limit",
+      "infinity",
+      "indeterminate form"
+    ],
+    "createdAt": "2026-09-23T04:24:10.673Z"
+  },
+  {
+    "id": "SM0150074",
+    "course": "SM015",
+    "topic": "Functions and Graphs",
+    "subtopic": "Exponential and Logarithm function",
+    "difficulty": "Hard",
+    "question": {
+      "type": "latex",
+      "content": "Given $f(x) = e^{-2x} + 3$; $~~(g \\circ f)(x) = \\dfrac{1}{2} \\ln(e^{-2x} + 2)$ $$$$\n(a) Find domain and range of $f(x)$ . $$$$\n(b) Find $g(x)$ $$$$\n(c) Hence, find $g^{-1}(x)$ . Sketch the graph of $g(x)$ and $g^{-1}(x)$ on the same axes.",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "(a) Domain $D_f =(-\\infty,\\infty)~~$, Range $R_f = (3, \\infty)$ $$$$\n(b) $~~g(x) = \\dfrac{1}{2} \\ln(x - 1)$ $$$$\n(c) $~~g^{-1}(x) = e^{2x} + 1$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=nSDKX8J0zxg"
+    },
+    "tags": [
+      "function",
+      "inverse",
+      "domain",
+      "exponent",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-23T04:09:36.643Z"
+  },
+  {
+    "id": "SM0150073",
+    "course": "SM015",
+    "topic": "Functions and Graphs",
+    "subtopic": "Exponential function",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Given $~~f(x) = 4^{x+2}$. $$$$\n(a) Find the value of $a$ when $f(a) = 1$. $$$$\n(b) Find $~~f^{-1}(x)~$ and its domain.",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "(a) $a = -2$ $$$$\n(b) $f^{-1}(x) = \\log_4(x) - 2$,$~~ D_{f^{-1}}~$: $~x > 0$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=jRo0ttE0B38"
+    },
+    "tags": [
+      "function",
+      "inverse",
+      "domain",
+      "exponent",
+      "logarithm"
+    ],
+    "createdAt": "2026-09-23T04:02:15.604Z"
+  },
+  {
+    "id": "SM0150072",
+    "course": "SM015",
+    "topic": "Equations, Inequalities and Absolute Values",
+    "subtopic": "Absolute value inequalities",
+    "difficulty": "Hard",
+    "question": {
+      "type": "latex",
+      "content": "$|2x + 3| > |x - 5|, \\quad x \\neq 5$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$x < -8 \\text{ or } x > \\dfrac{2}{3}, x \\neq 5$ $$$$ \n$(-\\infty,-8)\\cup\\left(\\dfrac{2}{3},5\\right)\\cup(5,\\infty)$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=iMi2paV8UrI"
+    },
+    "tags": [
+      "absolute",
+      "value",
+      "modulus",
+      "inequality"
+    ],
+    "createdAt": "2026-09-23T03:54:44.359Z"
+  },
+  {
+    "id": "SM0150071",
+    "course": "SM015",
+    "topic": "Equations, Inequalities and Absolute Values",
+    "subtopic": "Equation of logarithm",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Solve $~~x^{\\ln (x) - 2} = e^3$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "$x = e^3, ~~x =\\dfrac{1}{e}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=SIoViImh9uk"
+    },
+    "tags": [
+      "equation",
+      "logarithm",
+      "exponent"
+    ],
+    "createdAt": "2026-09-23T03:46:41.576Z"
+  },
+  {
+    "id": "SM0150070",
+    "course": "SM015",
+    "topic": "Number system",
+    "subtopic": "Complex Number",
+    "difficulty": "Medium",
+    "question": {
+      "type": "latex",
+      "content": "Given $z_1 = 6 + 3i$ and $z_2 = 5 - 2i$. $$$$\n(a)   Verify $~~\\overline{z_1 - z_2} = \\overline{z_1} - \\overline{z_2}$ $$$$\n(b)   Find $~~\\operatorname{Arg}(z_1)$",
+      "images": []
+    },
+    "answer": {
+      "type": "latex",
+      "content": "(a) Verified: both sides equal $1 - 5i$ $$$$ (b) $\\operatorname{Arg}(z_1) = \\tan^{-1}(0.5) \\approx 0.464 \\text{ rad}$",
+      "images": [],
+      "youtube": "https://www.youtube.com/watch?v=ktjjt-GfxNw"
+    },
+    "tags": [
+      "complex",
+      "number",
+      "argument",
+      "conjugate"
+    ],
+    "createdAt": "2026-09-23T03:40:11.481Z"
+  },
+  {
     "id": "SM0150069",
     "course": "SM015",
     "topic": "Differentiation",
