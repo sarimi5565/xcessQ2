@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Customize Questions</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .customize-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .section {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.5rem;
+      background: #fafafa;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 0.5rem;
+    }
+
+    .question-list {
+      max-height: 600px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: white;
+      margin: 1rem 0;
+    }
+
+    .question-item {
+      padding: 0.75rem;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .question-item:hover {
+      background: #f0f0f0;
+    }
+
+    .question-item.selected {
+      background: #e7f3ff;
+      border-left: 4px solid #007bff;
+    }
+
+    .question-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      flex: 1;
+    }
+
+    .question-id {
+      font-weight: bold;
+    }
+
+    .question-meta {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .add-btn {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .add-btn:hover {
+      background: #0056b3;
+    }
+
+    .selected-list {
+      max-height: 600px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: white;
+      margin: 1rem 0;
+      min-height: 400px;
+    }
+
+    .selected-item {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .selected-item:hover {
+      background: #fafafa;
+    }
+
+    .selected-item-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .selected-id {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .selected-meta {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .selected-controls {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .move-btn {
+      background: #6c757d;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .move-btn:hover {
+      background: #5a6268;
+    }
+
+    .remove-btn {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .remove-btn:hover {
+      background: #c82333;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn-primary {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      background: #218838;
+    }
+
+    .btn-secondary {
+      background: #6c757d;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+      flex: 1;
+    }
+
+    .btn-secondary:hover {
+      background: #5a6268;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      box-sizing: border-box;
+    }
+
+    .empty-state {
+      padding: 2rem;
+      text-align: center;
+      color: #999;
+      font-style: italic;
+    }
+
+    .info-box {
+      background: #e7f3ff;
+      border: 1px solid #b3d9ff;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: #004085;
+    }
+
+    @media (max-width: 900px) {
+      .customize-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- MathJax (LaTeX rendering) -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      options: { renderActions: { addMenu: [] } }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Customize Questions</h1>
+    <p class="subtitle">Select and arrange questions in your preferred order</p>
+  </header>
+
+  <div class="customize-container">
+    <!-- Available Questions Section -->
+    <div class="section">
+      <h2>Available Questions</h2>
+      <div class="info-box">
+        Click a question to select it, then click "Add" to add it to your list.
+      </div>
+      <input 
+        type="text" 
+        id="searchAvailable" 
+        class="search-input" 
+        placeholder="Search by ID, topic, course, tags..." />
+      
+      <div class="question-list" id="availableList">
+        <div class="empty-state">Loading questions...</div>
+      </div>
+    </div>
+
+    <!-- Selected Questions Section -->
+    <div class="section">
+      <h2>Your Selection</h2>
+      <div class="info-box">
+        Use arrow buttons to reorder. Click Remove to delete from your list.
+      </div>
+      <div class="selected-list" id="selectedList">
+        <div class="empty-state">No questions selected yet</div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-primary" id="generateBtn">Generate Custom View</button>
+        <button class="btn-secondary" id="resetBtn">Clear All</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>© Kolej Matrikulasi Kedah — Math Practice</p>
+  </footer>
+
+  <script src="customize.js"></script>
+</body>
+</html>
