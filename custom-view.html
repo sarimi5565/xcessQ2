@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Custom Question View</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .custom-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .custom-header h2 {
+      margin: 0;
+    }
+
+    .share-controls {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .btn-copy {
+      background: #17a2b8;
+      color: white;
+    }
+
+    .btn-copy:hover {
+      background: #138496;
+    }
+
+    .btn-back {
+      background: #6c757d;
+      color: white;
+    }
+
+    .btn-back:hover {
+      background: #5a6268;
+    }
+
+    .copy-feedback {
+      padding: 0.5rem 1rem;
+      background: #d4edda;
+      color: #155724;
+      border-radius: 4px;
+      display: none;
+      white-space: nowrap;
+    }
+
+    .copy-feedback.show {
+      display: block;
+    }
+  </style>
+
+  <!-- MathJax (LaTeX rendering) -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      options: { renderActions: { addMenu: [] } }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Custom Question View</h1>
+    <p class="subtitle">Your personalized selection of questions</p>
+  </header>
+
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+    <div class="custom-header">
+      <h2 id="countDisplay">Loading...</h2>
+      <div class="share-controls">
+        <button id="copyUrlBtn" class="btn btn-copy">��� Copy Share Link</button>
+        <div id="copyFeedback" class="copy-feedback">✓ Copied to clipboard!</div>
+        <button id="backBtn" class="btn btn-back">← Back to Customize</button>
+      </div>
+    </div>
+  </div>
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+    <div id="cardsContainer" class="cards"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© Kolej Matrikulasi Kedah — Math Practice</p>
+  </footer>
+
+  <script src="custom-view.js"></script>
+</body>
+</html>
