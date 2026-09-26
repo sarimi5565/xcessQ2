@@ -3,37 +3,85 @@ const DATA_URL = 'data/questions.json';
 
 let QUESTIONS = [];
 let SELECTED_IDS = [];
+let QUESTION_DESCRIPTIONS = {};
+let CUSTOM_TITLE = '';
+let CUSTOM_DESCRIPTION = '';
 
 const els = {
   countDisplay: document.getElementById('countDisplay'),
   cardsContainer: document.getElementById('cardsContainer'),
   copyUrlBtn: document.getElementById('copyUrlBtn'),
   copyFeedback: document.getElementById('copyFeedback'),
-  backBtn: document.getElementById('backBtn'),
+  customMetadata: document.getElementById('customMetadata'),
+  headerTitle: document.getElementById('headerTitle'),
+  headerSubtitle: document.getElementById('headerSubtitle'),
 };
 
 async function loadData() {
-  // Get list from URL params
+  // Get params from URL
   const params = new URLSearchParams(window.location.search);
   const listParam = params.get('list');
+  const titleParam = params.get('title');
+  const descParam = params.get('desc');
+  const questionDescsParam = params.get('questionDescs');
 
   if (!listParam) {
-    els.cardsContainer.innerHTML = '<div style="padding: 2rem; text-align: center; color: #999;">No questions specified. <a href="customize.html">Go back to customize</a></div>';
+    els.cardsContainer.innerHTML = '<div style="padding: 2rem; text-align: center; color: #999;">No questions specified.</div>';
     return;
   }
 
   try {
     SELECTED_IDS = JSON.parse(decodeURIComponent(listParam));
   } catch (e) {
-    els.cardsContainer.innerHTML = '<div style="padding: 2rem; text-align: center; color: #999;">Invalid question list. <a href="customize.html">Go back to customize</a></div>';
+    els.cardsContainer.innerHTML = '<div style="padding: 2rem; text-align: center; color: #999;">Invalid question list.</div>';
     return;
+  }
+
+  if (titleParam) {
+    try {
+      CUSTOM_TITLE = decodeURIComponent(titleParam);
+    } catch (e) {}
+  }
+
+  if (descParam) {
+    try {
+      CUSTOM_DESCRIPTION = decodeURIComponent(descParam);
+    } catch (e) {}
+  }
+
+  if (questionDescsParam) {
+    try {
+      QUESTION_DESCRIPTIONS = JSON.parse(decodeURIComponent(questionDescsParam));
+    } catch (e) {}
   }
 
   // Load all questions
   const res = await fetch(DATA_URL, { cache: 'no-store' });
   QUESTIONS = await res.json();
 
+  renderMetadata();
   renderCards();
+}
+
+function renderMetadata() {
+  if (CUSTOM_TITLE) {
+    els.headerTitle.textContent = CUSTOM_TITLE;
+  }
+
+  let metadataHtml = '';
+  
+  if (CUSTOM_TITLE || CUSTOM_DESCRIPTION) {
+    metadataHtml = '<div>';
+    if (CUSTOM_TITLE) {
+      metadataHtml += `<h2 class="custom-title">${escapeHtml(CUSTOM_TITLE)}</h2>`;
+    }
+    if (CUSTOM_DESCRIPTION) {
+      metadataHtml += `<p class="custom-desc">${escapeHtml(CUSTOM_DESCRIPTION).replace(/\n/g, '<br>')}</p>`;
+    }
+    metadataHtml += '</div>';
+  }
+
+  els.customMetadata.innerHTML = metadataHtml;
 }
 
 function renderCards() {
@@ -58,6 +106,14 @@ function renderCards() {
       </div>
       <h2 class="card-title">#${index + 1} — ${escapeHtml(String(item.id))}</h2>
     `;
+
+    // Add question description if it exists
+    if (QUESTION_DESCRIPTIONS[id]) {
+      const descDiv = document.createElement('div');
+      descDiv.className = 'question-description';
+      descDiv.textContent = QUESTION_DESCRIPTIONS[id];
+      header.appendChild(descDiv);
+    }
 
     const qBody = document.createElement('div');
     qBody.className = 'card-question';
@@ -164,8 +220,5 @@ function copyShareLink() {
 
 // Events
 els.copyUrlBtn.addEventListener('click', copyShareLink);
-els.backBtn.addEventListener('click', () => {
-  window.location.href = 'customize.html';
-});
 
 loadData();
