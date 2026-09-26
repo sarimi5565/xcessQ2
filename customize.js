@@ -3,6 +3,9 @@ const DATA_URL = 'data/questions.json';
 
 let QUESTIONS = [];
 let SELECTED_IDS = [];
+let QUESTION_DESCRIPTIONS = {}; // Store descriptions for each question
+let CUSTOM_TITLE = '';
+let CUSTOM_DESCRIPTION = '';
 
 const els = {
   searchAvailable: document.getElementById('searchAvailable'),
@@ -10,6 +13,8 @@ const els = {
   selectedList: document.getElementById('selectedList'),
   generateBtn: document.getElementById('generateBtn'),
   resetBtn: document.getElementById('resetBtn'),
+  customTitle: document.getElementById('customTitle'),
+  customDescription: document.getElementById('customDescription'),
 };
 
 async function loadData() {
@@ -20,12 +25,36 @@ async function loadData() {
   // Load from URL params if present
   const params = new URLSearchParams(window.location.search);
   const savedList = params.get('list');
+  const savedTitle = params.get('title');
+  const savedDesc = params.get('desc');
+  const savedQuestionDescs = params.get('questionDescs');
+
   if (savedList) {
     try {
       SELECTED_IDS = JSON.parse(decodeURIComponent(savedList));
     } catch (e) {
       console.warn('Failed to parse list from URL', e);
     }
+  }
+
+  if (savedTitle) {
+    try {
+      CUSTOM_TITLE = decodeURIComponent(savedTitle);
+      els.customTitle.value = CUSTOM_TITLE;
+    } catch (e) {}
+  }
+
+  if (savedDesc) {
+    try {
+      CUSTOM_DESCRIPTION = decodeURIComponent(savedDesc);
+      els.customDescription.value = CUSTOM_DESCRIPTION;
+    } catch (e) {}
+  }
+
+  if (savedQuestionDescs) {
+    try {
+      QUESTION_DESCRIPTIONS = JSON.parse(decodeURIComponent(savedQuestionDescs));
+    } catch (e) {}
   }
 
   renderAvailable();
@@ -69,8 +98,10 @@ function renderAvailable() {
       e.stopPropagation();
       if (isSelected) {
         SELECTED_IDS = SELECTED_IDS.filter(id => id !== q.id);
+        delete QUESTION_DESCRIPTIONS[q.id];
       } else {
         SELECTED_IDS.push(q.id);
+        QUESTION_DESCRIPTIONS[q.id] = '';
       }
       renderAvailable();
       renderSelected();
@@ -96,17 +127,30 @@ function renderSelected() {
     const item = document.createElement('div');
     item.className = 'selected-item';
     
+    const itemId = `desc-${id}`;
+    const currentDesc = QUESTION_DESCRIPTIONS[id] || '';
+
     item.innerHTML = `
-      <div class="selected-item-info">
-        <div class="selected-id">#${index + 1} — ${escapeHtml(String(q.id))}</div>
-        <div class="selected-meta">${q.course} • ${q.topic} • ${q.difficulty || 'N/A'}</div>
+      <div class="selected-item-header">
+        <div class="selected-item-info">
+          <div class="selected-id">#${index + 1} — ${escapeHtml(String(q.id))}</div>
+          <div class="selected-meta">${q.course} • ${q.topic} • ${q.difficulty || 'N/A'}</div>
+        </div>
+        <div class="selected-controls">
+          ${index > 0 ? '<button class="move-btn" title="Move up">↑</button>' : ''}
+          ${index < SELECTED_IDS.length - 1 ? '<button class="move-btn" title="Move down">↓</button>' : ''}
+          <button class="remove-btn" title="Remove">✕</button>
+        </div>
       </div>
-      <div class="selected-controls">
-        ${index > 0 ? '<button class="move-btn" title="Move up">↑</button>' : ''}
-        ${index < SELECTED_IDS.length - 1 ? '<button class="move-btn" title="Move down">↓</button>' : ''}
-        <button class="remove-btn" title="Remove">✕</button>
-      </div>
+      <textarea class="selected-description" id="${itemId}" placeholder="Add optional description or notes for this question..."></textarea>
     `;
+
+    const textarea = item.querySelector('.selected-description');
+    textarea.value = currentDesc;
+    textarea.addEventListener('change', () => {
+      QUESTION_DESCRIPTIONS[id] = textarea.value;
+      updateUrl();
+    });
 
     const buttons = item.querySelectorAll('button');
     
@@ -114,6 +158,7 @@ function renderSelected() {
       if (btn.classList.contains('remove-btn')) {
         btn.addEventListener('click', () => {
           SELECTED_IDS.splice(index, 1);
+          delete QUESTION_DESCRIPTIONS[id];
           renderAvailable();
           renderSelected();
           updateUrl();
@@ -138,8 +183,23 @@ function renderSelected() {
 }
 
 function updateUrl() {
+  CUSTOM_TITLE = els.customTitle.value;
+  CUSTOM_DESCRIPTION = els.customDescription.value;
+
   const listParam = encodeURIComponent(JSON.stringify(SELECTED_IDS));
-  const newUrl = `${window.location.pathname}?list=${listParam}`;
+  const titleParam = CUSTOM_TITLE ? encodeURIComponent(CUSTOM_TITLE) : '';
+  const descParam = CUSTOM_DESCRIPTION ? encodeURIComponent(CUSTOM_DESCRIPTION) : '';
+  const questionDescsParam = Object.keys(QUESTION_DESCRIPTIONS).some(key => QUESTION_DESCRIPTIONS[key]) 
+    ? encodeURIComponent(JSON.stringify(QUESTION_DESCRIPTIONS))
+    : '';
+
+  const params = new URLSearchParams();
+  params.set('list', listParam);
+  if (titleParam) params.set('title', titleParam);
+  if (descParam) params.set('desc', descParam);
+  if (questionDescsParam) params.set('questionDescs', questionDescsParam);
+
+  const newUrl = `${window.location.pathname}?${params.toString()}`;
   window.history.replaceState({ list: SELECTED_IDS }, '', newUrl);
 }
 
@@ -149,14 +209,31 @@ function generateCustomView() {
     return;
   }
   
-  // Create a query string with the list
+  CUSTOM_TITLE = els.customTitle.value;
+  CUSTOM_DESCRIPTION = els.customDescription.value;
+
   const listParam = encodeURIComponent(JSON.stringify(SELECTED_IDS));
-  window.location.href = `custom-view.html?list=${listParam}`;
+  const titleParam = CUSTOM_TITLE ? encodeURIComponent(CUSTOM_TITLE) : '';
+  const descParam = CUSTOM_DESCRIPTION ? encodeURIComponent(CUSTOM_DESCRIPTION) : '';
+  const questionDescsParam = Object.keys(QUESTION_DESCRIPTIONS).some(key => QUESTION_DESCRIPTIONS[key]) 
+    ? encodeURIComponent(JSON.stringify(QUESTION_DESCRIPTIONS))
+    : '';
+
+  const params = new URLSearchParams();
+  params.set('list', listParam);
+  if (titleParam) params.set('title', titleParam);
+  if (descParam) params.set('desc', descParam);
+  if (questionDescsParam) params.set('questionDescs', questionDescsParam);
+
+  window.location.href = `custom-view.html?${params.toString()}`;
 }
 
 function resetAll() {
   if (confirm('Are you sure you want to clear all selected questions?')) {
     SELECTED_IDS = [];
+    QUESTION_DESCRIPTIONS = {};
+    els.customTitle.value = '';
+    els.customDescription.value = '';
     renderAvailable();
     renderSelected();
     updateUrl();
@@ -173,5 +250,7 @@ function escapeHtml(s) {
 els.searchAvailable.addEventListener('input', renderAvailable);
 els.generateBtn.addEventListener('click', generateCustomView);
 els.resetBtn.addEventListener('click', resetAll);
+els.customTitle.addEventListener('change', updateUrl);
+els.customDescription.addEventListener('change', updateUrl);
 
 loadData();
