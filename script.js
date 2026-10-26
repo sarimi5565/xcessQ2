@@ -29,6 +29,36 @@ async function loadData() {
   applyFilters();
 }
 
+async function generateSolution(item) {
+  const payload = {
+    question: item.question?.content || '',
+    answer: item.answer?.content || '',
+    youtubeUrl: item.answer?.youtube || '',
+    topic: item.topic || '',
+    subtopic: item.subtopic || '',
+    course: item.course || ''
+  };
+
+  const res = await fetch('/api/solution', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const errBody = await res.json().catch(() => ({}));
+    throw new Error(errBody.error || 'Unable to generate solution right now.');
+  }
+
+  const data = await res.json();
+  const steps = Array.isArray(data.steps) ? data.steps : [];
+  if (steps.length === 0) {
+    return [{ text: data.solution || 'No steps were returned by the AI model.' }];
+  }
+
+  return steps;
+}
+
 function applyFilters() {
   const q = els.searchInput.value.trim().toLowerCase();
   const fCourse = els.course.value;
@@ -100,27 +130,77 @@ function renderCards(list) {
       answerWrap.appendChild(yt);
     }
 
+    const cardActions = document.createElement('div');
+    cardActions.className = 'card-actions';
+
     const toggleBtn = document.createElement('button');
+    toggleBtn.type = 'button';
     toggleBtn.className = 'btn reveal';
     toggleBtn.textContent = 'Reveal answer';
-    toggleBtn.addEventListener('click', () => {
+    toggleBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
       const visible = answerWrap.style.display !== 'none';
       answerWrap.style.display = visible ? 'none' : 'block';
       toggleBtn.textContent = visible ? 'Reveal answer' : 'Hide answer';
-      if (!visible) window.MathJax && MathJax.typesetPromise([answerWrap]);
+      if (!visible && window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise([answerWrap]);
+      }
     });
+
+    const solutionBtn = document.createElement('button');
+    solutionBtn.type = 'button';
+    solutionBtn.className = 'btn generate';
+    solutionBtn.textContent = 'Generate solution';
+
+    const solutionBox = document.createElement('div');
+    solutionBox.className = 'solution-box';
+    solutionBox.style.display = 'none';
+
+    solutionBtn.addEventListener('click', async (event) => {
+      event.stopPropagation();
+      if (solutionBox.style.display !== 'none') {
+        solutionBox.style.display = 'none';
+        return;
+      }
+
+      solutionBtn.disabled = true;
+      solutionBtn.textContent = 'Generating...';
+
+      try {
+        const steps = await generateSolution(item);
+        solutionBox.innerHTML = `
+          <h4>Step-by-step solution</h4>
+          <ol>
+            ${steps.map(step => `<li>${escapeHtml(String(step.text || step))}</li>`).join('')}
+          </ol>
+        `;
+        solutionBox.style.display = 'block';
+      } catch (err) {
+        solutionBox.innerHTML = `
+          <div class="solution-error">${escapeHtml(err && err.message ? err.message : 'Unable to generate solution.')}</div>
+        `;
+        solutionBox.style.display = 'block';
+      } finally {
+        solutionBtn.disabled = false;
+        solutionBtn.textContent = 'Show solution';
+      }
+    });
+
+    cardActions.appendChild(toggleBtn);
+    cardActions.appendChild(solutionBtn);
 
     card.appendChild(header);
     card.appendChild(qBody);
-    card.appendChild(toggleBtn);
+    card.appendChild(cardActions);
     card.appendChild(answerWrap);
+    card.appendChild(solutionBox);
 
     // Make the card clickable to open the detail page. Prevent navigation when clicking links/buttons inside the card.
     card.style.cursor = 'pointer';
     card.addEventListener('click', (e) => {
       const targetTag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
       if (targetTag === 'a' || targetTag === 'button' || e.target.closest && e.target.closest('.youtube')) {
-        // allow normal link/button behavior (e.g., Reveal answer or embedded youtube)
+        // allow normal link/button behavior (e.g., Reveal answer, Generate solution, or embedded youtube)
         return;
       }
       window.location.href = `question.html?id=${encodeURIComponent(item.id)}`;
